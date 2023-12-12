@@ -1,6 +1,7 @@
 import json
 import os
 import csv
+import datetime
 from vm_list import list_vms
 
 list_vms()
@@ -64,6 +65,19 @@ result_data = {
 with open("server_changes.json", "w") as json_file:
     json.dump(result_data, json_file, indent=2)
 
+# Writing historical change data to log
+csv_file_path = 'server_change_history.csv'
+with open(csv_file_path, 'a', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    current_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    for pod, servers in added_servers.items():
+        for server in servers:
+            writer.writerow([f"{server} was added to {pod} on {current_datetime}"])
+
+    for pod, servers in removed_servers.items():
+        for server in servers:
+            writer.writerow([f"{server} was removed from {pod} on {current_datetime}"])
+
 # Remove old file and rename new file
 remove_and_rename(old_file_path, new_file_path)
-

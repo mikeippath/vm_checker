@@ -16,6 +16,7 @@ This repository contains scripts for interacting with Virtuozzo pods to retrieve
    - Outputs a file named `server_changes.json` containing added or removed servers from each pod.
    - Renames `all_servers_dump_new.json` to `all_servers_dump_old.json` after the comparison.
    - Generates a `.csv` file called `servers.csv` containing a list of web servers from each pod.  `servers.csv` will be used for the zfs backup process on zfs-repl4, which backs up web servers via zfs and uses this file as its source of truth.
+   - Outputs a file called `server_change_history.csv` that is a historical record of servers added or removed from each pod by date and time.
   
 4. **Example Output Files:**
    - `all_servers_dump_old.json`: Master list of all servers and their pods in JSON format.
@@ -46,7 +47,6 @@ This repository contains scripts for interacting with Virtuozzo pods to retrieve
 
 - Improvements needed: Better error handling around API endpoints, credentials, and other configurations in the scripts.
 - TPWM integration.
-- Historical logs of servers added or removed with date/time.
 - Example output files are provided for reference.
   
 Feel free to contribute, report issues, or suggest improvements.

@@ -1,14 +1,19 @@
 {
   "Added Servers": {
     "pod1": [],
-    "pod2": [],
+    "pod2": [
+      "Websrv-232",
+      "Websrv-233"
+    ],
     "pod3": [],
     "pod4": []
   },
   "Removed Servers": {
     "pod1": [],
     "pod2": [],
-    "pod3": [],
+    "pod3": [
+      "Websrv-script-testing"
+    ],
     "pod4": []
   }
 }
