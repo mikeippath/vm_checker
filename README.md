@@ -15,12 +15,12 @@ This repository contains scripts for interacting with Virtuozzo pods to retrieve
    - Script for comparing two JSON files (`all_servers_dump_old.json` and `all_servers_dump_new.json`).
    - Outputs a file named `server_changes.json` containing added or removed servers from each pod.
    - Renames `all_servers_dump_new.json` to `all_servers_dump_old.json` after the comparison.
-   - Generates a `.csv` file called `servers.csv` containing a list of web servers from each pod.
+   - Generates a `.csv` file called `servers.csv` containing a list of web servers from each pod.  `servers.csv` will be used for the zfs backup process on zfs-repl4, which backs up web servers via zfs and uses this file as its source of truth.
   
 4. **Example Output Files:**
    - `all_servers_dump_old.json`: Master list of all servers and their pods in JSON format.
    - `server_changes.json`: Lists added or removed servers from each pod.
-   - `servers.csv`: CSV file with a list of web servers from each pod.
+   - `servers.csv`: CSV file with a list of web servers from each pod.  
    
 5. **Integration with alert_feeder:**
    - The script's output is designed to be served by `alert_feeder`, a Flask app deployed for upstream use with services like Zabbix.
