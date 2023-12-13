@@ -38,8 +38,8 @@ csv_file_path = 'servers.csv'
 with open(csv_file_path, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     for server_name in all_server_names:
-        if server_name.startswith('Websrv'):
-            server_name = f'{server_name},zfs1,w'
+        if server_name.lower().startswith('websrv'):
+            server_name = f'{server_name.lower()},zfs1,w'
             writer.writerow([server_name])
 
 with open('servers.csv', 'r') as f:
